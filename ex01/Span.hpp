@@ -6,7 +6,7 @@
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 00:50:37 by slazar            #+#    #+#             */
-/*   Updated: 2024/12/02 00:51:05 by slazar           ###   ########.fr       */
+/*   Updated: 2024/12/02 12:15:12 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,20 @@
 #include <iostream>
 #include <algorithm>
 #include <exception>
+#include <climits>
+
 
 class Span
 {
 private:
 	unsigned int _n;
-	std::vector<int> _vec;
+	std::vector<int> _v;
 public:
 	Span(unsigned int n);
-	Span(const Span &copy);
-	Span &operator=(const Span &copy);
+	Span(const Span &obj);
+	Span &operator=(const Span &obj);
 	~Span();
 	void addNumber(int number);
-	void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	int shortestSpan();
 	int longestSpan();
 	class FullSpanException : public std::exception
