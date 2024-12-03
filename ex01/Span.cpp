@@ -6,7 +6,7 @@
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:52:11 by slazar            #+#    #+#             */
-/*   Updated: 2024/12/02 12:18:59 by slazar           ###   ########.fr       */
+/*   Updated: 2024/12/03 13:13:40 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int Span::shortestSpan()
         if (v[i + 1] - v[i] < min)
             min = v[i + 1] - v[i];
     }
-    return min;
 }
 
 int Span::longestSpan()
