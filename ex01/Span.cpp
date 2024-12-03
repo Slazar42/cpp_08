@@ -6,7 +6,7 @@
 /*   By: slazar <slazar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:52:11 by slazar            #+#    #+#             */
-/*   Updated: 2024/12/03 13:13:40 by slazar           ###   ########.fr       */
+/*   Updated: 2024/12/03 13:47:09 by slazar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ Span &Span::operator=(const Span &obj)
 void Span::addNumber(int n)
 {
     if (_v.size() >= _n)
-        throw std::exception();
+        throw FullSpanException();
     _v.push_back(n);
 }
 
 int Span::shortestSpan()
 {
     if (_v.size() <= 1)
-        throw std::exception();
+        throw NoSpanException();
     std::vector<int> v = _v;
     std::sort(v.begin(), v.end());
     int min = INT_MAX;
@@ -46,12 +46,13 @@ int Span::shortestSpan()
         if (v[i + 1] - v[i] < min)
             min = v[i + 1] - v[i];
     }
+    return min;
 }
 
 int Span::longestSpan()
 {
     if (_v.size() <= 1)
-        throw std::exception();
+        throw NoSpanException();
     return *std::max_element(_v.begin(), _v.end()) - *std::min_element(_v.begin(), _v.end());
 }
 
